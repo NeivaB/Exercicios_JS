@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 04</title>
+</head>
+
+<body>
+    <div id="site-grid-container">
+        <div class="area menu-grid-item menu-flex-container">
+            <nav>
+                <a href="index.html">Exercício 01</a>
+                <a href="exercicio02.html">Exercício 02</a>
+                <a href="exercicio03.html">Exercício 03</a>
+                <a href="exercicio04.html">Exercício 04</a>
+                <a href="exercicio05.html">Exercício 05</a>
+                <a href="exercicio06.html">Exercício 06</a>
+            </nav>
+        </div>
+        <div class="area principal-grid-item">
+
+            <h1>Exercício 04</h1>
+
+            <p>
+                Crie uma função chamada maiorNumero, que recebe um array de números por parâmetro,
+                e que imprime apenas o maior dos números contidos no array;
+            </p>
+
+            <div>
+                <input type="number" id="input_01">
+            </div>
+            <div>
+                <input type="number" id="input_02">
+            </div>
+            <div>
+                <input type="number" id="input_03">
+            </div>
+            <div>
+                <button id="botoes" onclick="executar()">maiorNumero</button>
+            </div>
+            <div id="div_resultado">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    function executar() {
+        const input_01 = document.getElementById("input_01").value
+
+
+        const input_02 = document.getElementById("input_02").value
+
+
+        const input_03 = document.getElementById("input_03").value
+
+
+
+        const numeros = [Number(input_01), Number(input_02), Number(input_03)]
+        let max = Math.max(...numeros);
+
+        const divResultado = document.getElementById("div_resultado")
+
+        divResultado.innerHTML = max
+    }
+</script>
+<style>
+    /*Reset */
+    html,
+    body {
+        margin: 0px;
+    }
+
+    /* Layout */
+    #site-grid-container {
+        background-color: rgb(237, 240, 243);
+        height: 100vh;
+
+        display: grid;
+
+
+        grid-template-columns: 0.1fr 1fr;
+        grid-template-areas:
+            "menu principal";
+    }
+
+    .menu-grid-item {
+        grid-area: menu;
+        background-color: blanchedalmond;
+    }
+
+    .principal-grid-item {
+        grid-area: principal;
+        background-color: rgb(233, 184, 229);
+    }
+
+    /*Areas */
+    .menu-flex-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .area.menu-grid-item.menu-flex-container a {
+        display: block;
+        margin: 0.5rem auto;
+    }
+
+    #botoes {
+        background-color: lightgray;
+        text-align: center;
+        width: 9rem;
+        border-radius: 5px;
+        border: solid white 3px;
+        color: blue;
+    }
+</style>
